@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator_Asven", "Calculator_Asven\Calculator_Asven.csproj", "{BB7083EC-118F-441B-B16A-D337EE60299B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB7083EC-118F-441B-B16A-D337EE60299B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB7083EC-118F-441B-B16A-D337EE60299B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB7083EC-118F-441B-B16A-D337EE60299B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB7083EC-118F-441B-B16A-D337EE60299B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91AF05B8-26A8-4D3F-95BC-D934BA902DB7}
+	EndGlobalSection
+EndGlobal
