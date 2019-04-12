@@ -87,7 +87,7 @@ namespace Calculator_Asven
 
         private void Division_Click(object sender, EventArgs e)
         {
-            MainDisplay.Text = MainDisplay.Text + "/";
+            MainDisplay.Text = MainDisplay.Text + "/";1
         }
 
         private void Equally_Click(object sender, EventArgs e)
