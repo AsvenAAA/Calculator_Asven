@@ -8,7 +8,7 @@ namespace Calculator_Asven
 {
     class ReversePolishEntry
     {
-        private const string numbersSubstring = "0123456789";
+        private const string numbersSubstring = "0123456789,";
         private const string operatorsSubstring = "+-*/";
 
         private string sExpression;
@@ -107,22 +107,23 @@ namespace Calculator_Asven
         public double Calculate(string reversePolishEntry)
         {
             StringBuilder expressionOperator = new StringBuilder();
-            Stack<string> operators = new Stack<string>();
+            Stack<string> operands = new Stack<string>();
             byte zeroLength = 0;
 
             for (int symbolNumb = 0; symbolNumb < reversePolishEntry.Length; symbolNumb++)
             {
                 if (numbersSubstring.Contains(reversePolishEntry[symbolNumb]))
                 {
-                    expressionOperator.Append(reversePolishEntry[symbolNumb]); if (symbolNumb < reversePolishEntry.Length & operatorsSubstring.Contains(reversePolishEntry[symbolNumb + 1]))
+                    expressionOperator.Append(reversePolishEntry[symbolNumb]);
+                    if (symbolNumb < reversePolishEntry.Length & operatorsSubstring.Contains(reversePolishEntry[symbolNumb + 1]))
                     {
-                        operators.Push(expressionOperator.ToString());
+                        operands.Push(expressionOperator.ToString());
                         expressionOperator.Clear();
                     }
                 }
                 else if (expressionOperator.Length > zeroLength & reversePolishEntry[symbolNumb] == ' ')
                 {
-                    operators.Push(expressionOperator.ToString());
+                    operands.Push(expressionOperator.ToString());
                     expressionOperator.Clear();
                 }
                 else if (operatorsSubstring.Contains(reversePolishEntry[symbolNumb]))
@@ -130,21 +131,21 @@ namespace Calculator_Asven
                     switch (reversePolishEntry[symbolNumb])
                     {
                         case '+':
-                            operators.Push(Add(double.Parse(operators.Pop()), double.Parse(operators.Pop())).ToString());
+                            operands.Push(Add(double.Parse(operands.Pop()), double.Parse(operands.Pop())).ToString());
                             break;
                         case '-':
-                            operators.Push(Sub(double.Parse(operators.Pop()), double.Parse(operators.Pop())).ToString());
+                            operands.Push(Sub(double.Parse(operands.Pop()), double.Parse(operands.Pop())).ToString());
                             break;
                         case '*':
-                            operators.Push(Mult(double.Parse(operators.Pop()), double.Parse(operators.Pop())).ToString());
+                            operands.Push(Mult(double.Parse(operands.Pop()), double.Parse(operands.Pop())).ToString());
                             break;
                         case '/':
-                            operators.Push(Div(double.Parse(operators.Pop()), double.Parse(operators.Pop())).ToString());
+                            operands.Push(Div(double.Parse(operands.Pop()), double.Parse(operands.Pop())).ToString());
                             break;
                     }
                 }
             }
-            return double.Parse(operators.Pop());
+            return double.Parse(operands.Pop());
         }
     }
 }

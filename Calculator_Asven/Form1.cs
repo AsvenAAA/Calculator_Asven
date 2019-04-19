@@ -12,6 +12,8 @@ namespace Calculator_Asven
 {
     public partial class Form1 : Form
     {
+        private string Expression { get; set; } = "";
+
         public Form1()
         {
             InitializeComponent();
@@ -87,17 +89,77 @@ namespace Calculator_Asven
 
         private void Division_Click(object sender, EventArgs e)
         {
-            MainDisplay.Text = MainDisplay.Text + "/";1
+            MainDisplay.Text = MainDisplay.Text + "/";
+        }
+
+        private void OpenningBracket_Click(object sender, EventArgs e)
+        {
+            MainDisplay.Text = MainDisplay.Text + "(";
+        }
+
+        private void ClothingBracket_Click(object sender, EventArgs e)
+        {
+            MainDisplay.Text = MainDisplay.Text + ")";
+        }
+
+        private void Comma_Click(object sender, EventArgs e)
+        {
+            MainDisplay.Text = MainDisplay.Text + ",";
         }
 
         private void Equally_Click(object sender, EventArgs e)
         {
             ReversePolishEntry rpe = new ReversePolishEntry(MainDisplay.Text);
+            MainDisplay.Text = rpe.Calculate(rpe.RPEformer(rpe.Expression)).ToString();
+        }
+        //don't work
+        private void CleanEntry_Click(object sender, EventArgs e)
+        {
+            MainDisplay.Text.Remove(Text.Length - 1);
+        }
+
+        private void CleanAll_Click(object sender, EventArgs e)
+        {
+            MainDisplay.Clear();
+        }
+
+        private void MemorySave_Click(object sender, EventArgs e)
+        {
+            Expression = MainDisplay.Text;
+        }
+
+        private void MemoryClean_Click(object sender, EventArgs e)
+        {
+            Expression = "";
+        }
+
+        private void MemoryRead_Click(object sender, EventArgs e)
+        {
+            if (Expression != "")
+            {
+                MainDisplay.Clear();
+                MainDisplay.Text = Expression;
+            }
+        }
+
+        private void CurrentAddMemory_Click(object sender, EventArgs e)
+        {
+            MainDisplay.Text = Expression + "+" + MainDisplay.Text;
+        }
+
+        private void CurrentSubMemory_Click(object sender, EventArgs e)
+        {
+            MainDisplay.Text = Expression + "-" + MainDisplay.Text;
         }
 
         private void MainDisplay_TextChanged(object sender, EventArgs e)
         {
+            
+        }
 
+        private void MemoryBox_TextChanged(object sender, EventArgs e)
+        {
+            MemoryBox.Text = Expression;1
         }
     }
 }

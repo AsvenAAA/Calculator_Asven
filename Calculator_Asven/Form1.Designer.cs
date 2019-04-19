@@ -41,7 +41,7 @@
             this.Equally = new System.Windows.Forms.Button();
             this.CleanEntry = new System.Windows.Forms.Button();
             this.CleanAll = new System.Windows.Forms.Button();
-            this.CurrentDivMemory = new System.Windows.Forms.Button();
+            this.CurrentSubMemory = new System.Windows.Forms.Button();
             this.Addition = new System.Windows.Forms.Button();
             this.Subtraction = new System.Windows.Forms.Button();
             this.Multiplication = new System.Windows.Forms.Button();
@@ -51,6 +51,10 @@
             this.MemorySave = new System.Windows.Forms.Button();
             this.CurrentAddMemory = new System.Windows.Forms.Button();
             this.MainDisplay = new System.Windows.Forms.TextBox();
+            this.OpenningBracket = new System.Windows.Forms.Button();
+            this.ClothingBracket = new System.Windows.Forms.Button();
+            this.Comma = new System.Windows.Forms.Button();
+            this.MemoryBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // One
@@ -171,6 +175,7 @@
             this.CleanEntry.TabIndex = 11;
             this.CleanEntry.Text = "CE";
             this.CleanEntry.UseVisualStyleBackColor = true;
+            this.CleanEntry.Click += new System.EventHandler(this.CleanEntry_Click);
             // 
             // CleanAll
             // 
@@ -180,15 +185,17 @@
             this.CleanAll.TabIndex = 12;
             this.CleanAll.Text = "C";
             this.CleanAll.UseVisualStyleBackColor = true;
+            this.CleanAll.Click += new System.EventHandler(this.CleanAll_Click);
             // 
-            // CurrentDivMemory
+            // CurrentSubMemory
             // 
-            this.CurrentDivMemory.Location = new System.Drawing.Point(215, 133);
-            this.CurrentDivMemory.Name = "CurrentDivMemory";
-            this.CurrentDivMemory.Size = new System.Drawing.Size(31, 28);
-            this.CurrentDivMemory.TabIndex = 14;
-            this.CurrentDivMemory.Text = "M-";
-            this.CurrentDivMemory.UseVisualStyleBackColor = true;
+            this.CurrentSubMemory.Location = new System.Drawing.Point(215, 133);
+            this.CurrentSubMemory.Name = "CurrentSubMemory";
+            this.CurrentSubMemory.Size = new System.Drawing.Size(31, 28);
+            this.CurrentSubMemory.TabIndex = 14;
+            this.CurrentSubMemory.Text = "M-";
+            this.CurrentSubMemory.UseVisualStyleBackColor = true;
+            this.CurrentSubMemory.Click += new System.EventHandler(this.CurrentSubMemory_Click);
             // 
             // Addition
             // 
@@ -238,6 +245,7 @@
             this.MemoryClean.TabIndex = 20;
             this.MemoryClean.Text = "MC";
             this.MemoryClean.UseVisualStyleBackColor = true;
+            this.MemoryClean.Click += new System.EventHandler(this.MemoryClean_Click);
             // 
             // MemoryRead
             // 
@@ -247,6 +255,7 @@
             this.MemoryRead.TabIndex = 21;
             this.MemoryRead.Text = "MR";
             this.MemoryRead.UseVisualStyleBackColor = true;
+            this.MemoryRead.Click += new System.EventHandler(this.MemoryRead_Click);
             // 
             // MemorySave
             // 
@@ -257,6 +266,7 @@
             this.MemorySave.TabIndex = 22;
             this.MemorySave.Text = "MS";
             this.MemorySave.UseVisualStyleBackColor = true;
+            this.MemorySave.Click += new System.EventHandler(this.MemorySave_Click);
             // 
             // CurrentAddMemory
             // 
@@ -266,21 +276,64 @@
             this.CurrentAddMemory.TabIndex = 23;
             this.CurrentAddMemory.Text = "M+";
             this.CurrentAddMemory.UseVisualStyleBackColor = true;
+            this.CurrentAddMemory.Click += new System.EventHandler(this.CurrentAddMemory_Click);
             // 
             // MainDisplay
             // 
-            this.MainDisplay.Location = new System.Drawing.Point(12, 12);
+            this.MainDisplay.Location = new System.Drawing.Point(12, 51);
             this.MainDisplay.Multiline = true;
             this.MainDisplay.Name = "MainDisplay";
-            this.MainDisplay.Size = new System.Drawing.Size(285, 69);
+            this.MainDisplay.Size = new System.Drawing.Size(285, 32);
             this.MainDisplay.TabIndex = 24;
             this.MainDisplay.TextChanged += new System.EventHandler(this.MainDisplay_TextChanged);
+            // 
+            // OpenningBracket
+            // 
+            this.OpenningBracket.Location = new System.Drawing.Point(252, 99);
+            this.OpenningBracket.Name = "OpenningBracket";
+            this.OpenningBracket.Size = new System.Drawing.Size(22, 28);
+            this.OpenningBracket.TabIndex = 25;
+            this.OpenningBracket.Text = "(";
+            this.OpenningBracket.UseVisualStyleBackColor = true;
+            this.OpenningBracket.Click += new System.EventHandler(this.OpenningBracket_Click);
+            // 
+            // ClothingBracket
+            // 
+            this.ClothingBracket.Location = new System.Drawing.Point(275, 99);
+            this.ClothingBracket.Name = "ClothingBracket";
+            this.ClothingBracket.Size = new System.Drawing.Size(22, 28);
+            this.ClothingBracket.TabIndex = 26;
+            this.ClothingBracket.Text = ")";
+            this.ClothingBracket.UseVisualStyleBackColor = true;
+            this.ClothingBracket.Click += new System.EventHandler(this.ClothingBracket_Click);
+            // 
+            // Comma
+            // 
+            this.Comma.Location = new System.Drawing.Point(67, 273);
+            this.Comma.Name = "Comma";
+            this.Comma.Size = new System.Drawing.Size(31, 30);
+            this.Comma.TabIndex = 27;
+            this.Comma.Text = ",";
+            this.Comma.UseVisualStyleBackColor = true;
+            this.Comma.Click += new System.EventHandler(this.Comma_Click);
+            // 
+            // MemoryBox
+            // 
+            this.MemoryBox.Location = new System.Drawing.Point(159, 25);
+            this.MemoryBox.Name = "MemoryBox";
+            this.MemoryBox.Size = new System.Drawing.Size(136, 20);
+            this.MemoryBox.TabIndex = 28;
+            this.MemoryBox.TextChanged += new System.EventHandler(this.MemoryBox_TextChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(307, 319);
+            this.Controls.Add(this.MemoryBox);
+            this.Controls.Add(this.Comma);
+            this.Controls.Add(this.ClothingBracket);
+            this.Controls.Add(this.OpenningBracket);
             this.Controls.Add(this.MainDisplay);
             this.Controls.Add(this.CurrentAddMemory);
             this.Controls.Add(this.MemorySave);
@@ -290,7 +343,7 @@
             this.Controls.Add(this.Multiplication);
             this.Controls.Add(this.Subtraction);
             this.Controls.Add(this.Addition);
-            this.Controls.Add(this.CurrentDivMemory);
+            this.Controls.Add(this.CurrentSubMemory);
             this.Controls.Add(this.CleanAll);
             this.Controls.Add(this.CleanEntry);
             this.Controls.Add(this.Equally);
@@ -326,7 +379,7 @@
         private System.Windows.Forms.Button Equally;
         private System.Windows.Forms.Button CleanEntry;
         private System.Windows.Forms.Button CleanAll;
-        private System.Windows.Forms.Button CurrentDivMemory;
+        private System.Windows.Forms.Button CurrentSubMemory;
         private System.Windows.Forms.Button Addition;
         private System.Windows.Forms.Button Subtraction;
         private System.Windows.Forms.Button Multiplication;
@@ -336,6 +389,10 @@
         private System.Windows.Forms.Button MemorySave;
         private System.Windows.Forms.Button CurrentAddMemory;
         private System.Windows.Forms.TextBox MainDisplay;
+        private System.Windows.Forms.Button OpenningBracket;
+        private System.Windows.Forms.Button ClothingBracket;
+        private System.Windows.Forms.Button Comma;
+        private System.Windows.Forms.TextBox MemoryBox;
     }
 }
 
