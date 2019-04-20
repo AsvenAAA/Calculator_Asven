@@ -145,7 +145,7 @@ namespace Calculator_Asven
                     }
                 }
             }
-            return double.Parse(operands.Pop());//
+            return double.Parse(operands.Pop());
         }
     }
 }
