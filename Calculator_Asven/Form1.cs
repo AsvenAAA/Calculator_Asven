@@ -159,7 +159,7 @@ namespace Calculator_Asven
 
         private void MemoryBox_TextChanged(object sender, EventArgs e)
         {
-            MemoryBox.Text = Expression;1
+            MemoryBox.Text = Expression;
         }
     }
 }
