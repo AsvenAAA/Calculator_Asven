@@ -130,7 +130,7 @@ namespace Calculator_Asven
 
         private void MemoryClean_Click(object sender, EventArgs e)
         {
-            Expression = "";
+            Expression = null;
         }
 
         private void MemoryRead_Click(object sender, EventArgs e)
@@ -138,7 +138,7 @@ namespace Calculator_Asven
             if (Expression != "")
             {
                 MainDisplay.Clear();
-                MainDisplay.Text = Expression;
+                MemoryBox.Text = Expression;
             }
         }
 
@@ -159,7 +159,7 @@ namespace Calculator_Asven
 
         private void MemoryBox_TextChanged(object sender, EventArgs e)
         {
-            MemoryBox.Text = Expression;
+
         }
     }
 }

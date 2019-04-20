@@ -10,6 +10,7 @@ namespace Calculator_Asven
     {
         private const string numbersSubstring = "0123456789,";
         private const string operatorsSubstring = "+-*/";
+        public string error { get; set; }
 
         private string sExpression;
         public string Expression
@@ -104,7 +105,7 @@ namespace Calculator_Asven
         public double Mult(double x, double y) {return y * x;}
         public double Div(double x, double y) {return y / x;}
 
-        public double Calculate(string reversePolishEntry)
+        public string Calculate(string reversePolishEntry)
         {
             StringBuilder expressionOperator = new StringBuilder();
             Stack<string> operands = new Stack<string>();
@@ -145,7 +146,7 @@ namespace Calculator_Asven
                     }
                 }
             }
-            return double.Parse(operands.Pop());
+            return operands.Pop();
         }
     }
 }

@@ -283,7 +283,7 @@
             this.MainDisplay.Location = new System.Drawing.Point(12, 51);
             this.MainDisplay.Multiline = true;
             this.MainDisplay.Name = "MainDisplay";
-            this.MainDisplay.Size = new System.Drawing.Size(285, 32);
+            this.MainDisplay.Size = new System.Drawing.Size(285, 19);
             this.MainDisplay.TabIndex = 24;
             this.MainDisplay.TextChanged += new System.EventHandler(this.MainDisplay_TextChanged);
             // 
@@ -320,6 +320,7 @@
             // MemoryBox
             // 
             this.MemoryBox.Location = new System.Drawing.Point(159, 25);
+            this.MemoryBox.Multiline = true;
             this.MemoryBox.Name = "MemoryBox";
             this.MemoryBox.Size = new System.Drawing.Size(136, 20);
             this.MemoryBox.TabIndex = 28;
