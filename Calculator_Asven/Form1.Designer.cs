@@ -54,7 +54,6 @@
             this.OpenningBracket = new System.Windows.Forms.Button();
             this.ClothingBracket = new System.Windows.Forms.Button();
             this.Comma = new System.Windows.Forms.Button();
-            this.MemoryBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // One
@@ -280,6 +279,8 @@
             // 
             // MainDisplay
             // 
+            this.MainDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.MainDisplay.Location = new System.Drawing.Point(12, 51);
             this.MainDisplay.Multiline = true;
             this.MainDisplay.Name = "MainDisplay";
@@ -317,21 +318,11 @@
             this.Comma.UseVisualStyleBackColor = true;
             this.Comma.Click += new System.EventHandler(this.Comma_Click);
             // 
-            // MemoryBox
-            // 
-            this.MemoryBox.Location = new System.Drawing.Point(159, 25);
-            this.MemoryBox.Multiline = true;
-            this.MemoryBox.Name = "MemoryBox";
-            this.MemoryBox.Size = new System.Drawing.Size(136, 20);
-            this.MemoryBox.TabIndex = 28;
-            this.MemoryBox.TextChanged += new System.EventHandler(this.MemoryBox_TextChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 319);
-            this.Controls.Add(this.MemoryBox);
+            this.ClientSize = new System.Drawing.Size(321, 337);
             this.Controls.Add(this.Comma);
             this.Controls.Add(this.ClothingBracket);
             this.Controls.Add(this.OpenningBracket);
@@ -393,7 +384,6 @@
         private System.Windows.Forms.Button OpenningBracket;
         private System.Windows.Forms.Button ClothingBracket;
         private System.Windows.Forms.Button Comma;
-        private System.Windows.Forms.TextBox MemoryBox;
     }
 }
 

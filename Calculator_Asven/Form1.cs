@@ -12,7 +12,7 @@ namespace Calculator_Asven
 {
     public partial class Form1 : Form
     {
-        private string Expression { get; set; } = "";
+        private string Expression { get; set; }
 
         public Form1()
         {
@@ -109,13 +109,21 @@ namespace Calculator_Asven
 
         private void Equally_Click(object sender, EventArgs e)
         {
-            ReversePolishEntry rpe = new ReversePolishEntry(MainDisplay.Text);
-            MainDisplay.Text = rpe.Calculate(rpe.RPEformer(rpe.Expression));
+            try
+            {
+                ReversePolishEntry rpe = new ReversePolishEntry(MainDisplay.Text);
+                if(rpe.error == null) MainDisplay.Text = rpe.Calculate(rpe.RPEformer(rpe.Expression));
+            }
+            catch (Exception exception)
+            {
+                ReversePolishEntry rpe = new ReversePolishEntry();
+                rpe.error = "Wrong expression!";
+            }
         }
-        //don't work
+
         private void CleanEntry_Click(object sender, EventArgs e)
         {
-            MainDisplay.Text = MainDisplay.Text.Remove(MainDisplay.Text.Length - 1);
+            if(MainDisplay.Text.Length > 0)MainDisplay.Text = MainDisplay.Text.Remove(MainDisplay.Text.Length - 1);
         }
 
         private void CleanAll_Click(object sender, EventArgs e)
@@ -135,31 +143,27 @@ namespace Calculator_Asven
 
         private void MemoryRead_Click(object sender, EventArgs e)
         {
-            if (Expression != "")
-            {
-                MainDisplay.Clear();
-                MemoryBox.Text = Expression;
-            }
+            MainDisplay.Text = Expression;
         }
 
         private void CurrentAddMemory_Click(object sender, EventArgs e)
         {
-            MainDisplay.Text = Expression + "+" + MainDisplay.Text;
+            //MainDisplay.Text = Expression + "+" + MainDisplay.Text;
+            ReversePolishEntry rpe = new ReversePolishEntry(MainDisplay.Text);
+            MainDisplay.Text = rpe.Calculate(rpe.RPEformer(Expression + "+" + rpe.Expression));
         }
 
         private void CurrentSubMemory_Click(object sender, EventArgs e)
         {
-            MainDisplay.Text = Expression + "-" + MainDisplay.Text;
+            //MainDisplay.Text = Expression + "-" + MainDisplay.Text;
+            ReversePolishEntry rpe = new ReversePolishEntry(MainDisplay.Text);
+            if (rpe.Expression[0] != '-') MainDisplay.Text = rpe.Calculate(rpe.RPEformer(Expression + "-" + rpe.Expression));
+            else MainDisplay.Text = rpe.Calculate(rpe.RPEformer(Expression + rpe.Expression));
         }
 
         private void MainDisplay_TextChanged(object sender, EventArgs e)
         {
             
-        }
-
-        private void MemoryBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

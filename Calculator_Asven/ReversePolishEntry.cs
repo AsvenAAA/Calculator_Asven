@@ -10,7 +10,7 @@ namespace Calculator_Asven
     {
         private const string numbersSubstring = "0123456789,";
         private const string operatorsSubstring = "+-*/";
-        public string error { get; set; }
+        public string error { get; set; } = null;
 
         private string sExpression;
         public string Expression
@@ -18,10 +18,11 @@ namespace Calculator_Asven
             get { return sExpression; }
             set
             {
-                sExpression = value;
+                sExpression = value.Trim();
             }
         }
 
+        public ReversePolishEntry() { error = "Don't have expression"; }
         public ReversePolishEntry(string Expression)
         {
             this.Expression = Expression;
