@@ -110,12 +110,12 @@ namespace Calculator_Asven
         private void Equally_Click(object sender, EventArgs e)
         {
             ReversePolishEntry rpe = new ReversePolishEntry(MainDisplay.Text);
-            MainDisplay.Text = rpe.Calculate(rpe.RPEformer(rpe.Expression)).ToString();
+            MainDisplay.Text = rpe.Calculate(rpe.RPEformer(rpe.Expression));
         }
         //don't work
         private void CleanEntry_Click(object sender, EventArgs e)
         {
-            MainDisplay.Text.Remove(Text.Length - 1);
+            MainDisplay.Text = MainDisplay.Text.Remove(MainDisplay.Text.Length - 1);
         }
 
         private void CleanAll_Click(object sender, EventArgs e)
